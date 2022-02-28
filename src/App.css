@@ -1,14 +1,42 @@
+#listMapContainer {
+  display: flex;
+  height: 80vh;
+  width: 70%;
+  margin: 0 15% 0 15%;
+}
+
+#truckListContainer {
+  overflow: scroll;
+  overflow-y: none;
+  width: 100%;
+}
+
 #truckCard {
   display: grid;
   grid-template-columns: repeat(10, 10%);
   grid-template-rows: repeat(10, 10%);
-  height: 250px;
-  width: 30%;
+  height: 30vh;
+  width: auto;
   margin-bottom: 50px;
-  margin-left: 35px;
   border-style: double;
 }
 
+#truckCardBtnContainer {
+  display: flex;
+  justify-content: space-around;
+  grid-row-start: 9;
+  grid-column-start: 1;
+  grid-column-end: 11;
+}
+
+#mapPlaceholder {
+  display: flex;
+  height: 80vh;
+  width: 100%;
+  background-color: rgb(216, 216, 216);
+  align-items: center;
+  justify-content: center;
+}
 
 /************************
 
@@ -41,14 +69,14 @@ TRUCK LOCATION CARD
 }
 
 .truckCardBtn {
-  grid-row-start: 9;
-  height: 40px;
-  width: 120px;
-  background-color: rgb(71, 70, 70);
+  height: 35px;
+  width: 200px;
+  background-color: rgb(68, 68, 68);
   color: white;
   border: none;
+  border-radius: 10px;
 }
 
 #truckMoreInfo {
-  grid-column-start: 5;
+  /* grid-column-start: 5; */
 }

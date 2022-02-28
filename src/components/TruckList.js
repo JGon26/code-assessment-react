@@ -1,14 +1,15 @@
 import TruckListEntry from './TruckListEntry.js';
 
-const TruckList = ( { truckList } ) => {
+const TruckList = ({ truckList, updateCardClicked, updateCurrentTruck }) => {
 
   return (
-    <div>
+    <div id="truckListContainer">
       {truckList.map((truck, index) =>
-        <TruckListEntry truck={truck} key={index} />
+        <TruckListEntry truck={truck} key={index} updateCardClicked={updateCardClicked}
+          updateCurrentTruck={updateCurrentTruck} />
       )}
     </div>
-  )
-}
+  );
+};
 
 export default TruckList;
