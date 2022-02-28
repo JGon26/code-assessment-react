@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import TruckList from './components/TruckList.js';
 import MapContainer from './components/MapContainer.js';
+import Nav from './components/Nav.js';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Nav />
       <div id="listMapContainer">
         <TruckList truckList={truckList} updateCardClicked={updateCardClicked} updateCurrentTruck={updateCurrentTruck} />
         <MapContainer cardClicked={cardClicked} truck={currentTruck} />

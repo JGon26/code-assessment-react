@@ -1,3 +1,31 @@
+#nav {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3%;
+  align-content: stretch;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+#menuLocator {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#navLocator {
+  justify-content: flex-end;
+  align-self: flex-end;
+  padding: 10px;
+}
+
+#rioLogo {
+  height: 40px;
+  width: auto;
+  padding: 10px;
+}
+
 #listMapContainer {
   display: flex;
   height: 80vh;
@@ -9,6 +37,7 @@
   overflow: scroll;
   overflow-y: none;
   width: 100%;
+  position:static;
 }
 
 #truckCard {
@@ -18,7 +47,9 @@
   height: 30vh;
   width: auto;
   margin-bottom: 50px;
+  margin-right: 10px;
   border-style: double;
+  padding-left: 10px;
 }
 
 #truckCardBtnContainer {
@@ -77,6 +108,8 @@ TRUCK LOCATION CARD
   border-radius: 10px;
 }
 
-#truckMoreInfo {
-  /* grid-column-start: 5; */
-}
+/********************
+
+More Info Modal
+
+********************/
