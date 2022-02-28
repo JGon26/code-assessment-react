@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import TruckList from './components/TruckList.js';
 
 const App = () => {
 
@@ -16,7 +17,7 @@ const App = () => {
 
   return (
     <div className="App">
-      Hello World!
+      <TruckList truckList={truckList}/>
     </div>
   );
 }

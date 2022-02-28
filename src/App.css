@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+#truckCard {
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(10, 10%);
+  height: 250px;
+  width: 30%;
+  margin-bottom: 50px;
+  margin-left: 35px;
+  border-style: double;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/************************
+
+TRUCK LOCATION CARD
+
+*************************/
+
+.truckCardInfo {
+  grid-column-start: 1;
+  grid-column-end: 8;
+}
+#truckName {
+  grid-row-start: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#truckAddress {
+  grid-row-start: 3;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#truckLocation {
+  grid-row-start: 4;
+}
+
+#truckDayClose {
+  grid-row-start: 6;
+}
+
+#truckNumber {
+  grid-row-start: 7;
+}
+
+.truckCardBtn {
+  grid-row-start: 9;
+  height: 40px;
+  width: 120px;
+  background-color: rgb(71, 70, 70);
   color: white;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#truckMoreInfo {
+  grid-column-start: 5;
 }
