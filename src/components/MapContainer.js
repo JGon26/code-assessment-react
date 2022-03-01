@@ -1,4 +1,5 @@
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import pin from '../assets/map-pin.png';
 
 const MapContainer = ({ cardClicked, truck }) => {
 
@@ -23,6 +24,7 @@ const MapContainer = ({ cardClicked, truck }) => {
       <LoadScript
         googleMapsApiKey={process.env.REACT_APP_GOOGLE_API}>
         <GoogleMap id="googleMap"
+          icon={pin}
           zoom={13}
           center={locations[0].location}>
           <Marker position={locations[0].location} />

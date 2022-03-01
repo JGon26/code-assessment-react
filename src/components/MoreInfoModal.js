@@ -9,20 +9,27 @@ const MoreInfoModal = ({ truck, showModal, updateModal }) => {
     updateModal(false);
   }
 
+  const handleFullDetails = (truck) => {
+    window.open(truck.url)
+  }
+
   const handleHours = (truck) => {
     let dayArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
       'Friday', 'Saturday', 'Sunday'];
 
     let html = '';
+    let hourHtml = '';
 
     for (var i = 0; i < dayArray.length; i++) {
       let day = dayArray[i].toString();
       let openKey = '' + day.toLowerCase() + '_open'
       let closeKey = '' + day.toLowerCase() + '_close'
-      html += `<h6 className="modal${day}">${day}</h6><h6 className="modal${day}Hours">${truck[openKey]} - ${truck[closeKey]}</h6>`
+      html += `<h5 id="days" id="modal${day}">${day}</h5>`
+      hourHtml += `<h5 id="hours" id="modal${day}Hours">${truck[openKey]} - ${truck[closeKey]}</h5>`
     }
 
-  return <div id="modalHourBox" dangerouslySetInnerHTML={{ __html: html }}/>;
+    return (<div id="modalDayHoursBox"><div id="modalDayBox" dangerouslySetInnerHTML={{ __html: html }} />
+      <div id="modalHourBox" dangerouslySetInnerHTML={{ __html: hourHtml }} /> </div>);
   }
 
   return (
@@ -34,9 +41,16 @@ const MoreInfoModal = ({ truck, showModal, updateModal }) => {
           <h3 id="modalTruckName">{truck.name}</h3>
           <h5 id="modalTruckAddress">{truck.address}</h5>
           <h5 id="modalTruckCity">{truck.city}, {truck.state} {truck.postal_code}</h5>
-          <h5 id="modalTruckNum" ><img src={phone} alt='phone icon' />111-222-3333</h5>
-          <h5 id="modalTruckDirections" ><img src={car} alt='phone icon' />Get Directions</h5>
+          <div id="modalTruckNum">
+            <img src={phone} alt='phone icon' />
+            <h5 id="truckNum">111-222-3333</h5>
+          </div>
+          <div id="modalTruckDirections">
+            <img src={car} alt='phone icon' />
+            <h5 id="directions" >Get Directions</h5>
+          </div>
           {handleHours(truck)}
+          <button id="fullDetailsBtn" onClick={() => handleFullDetails(truck)}>VIEW FULL DETAILS</button>
 
         </div>
       </div>

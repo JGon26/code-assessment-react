@@ -7,8 +7,11 @@ const Nav = () => {
     <div id="nav">
       <img id="rioLogo" src={rio} alt="rio logo"></img>
       <div id="menuLocator">
-      <h6 id="navMenu" >Menu</h6>
-      <h6 id="navLocator" ><img src={location} alt="locationPin"></img>Truck Locator</h6>
+        <h6 id="navMenu" >Menu</h6>
+        <div id="navLocator">
+          <img src={location} alt="locationPin"></img>
+          <h6 id="truckLocator">Truck Locator</h6>
+        </div>
       </div>
     </div>
   );
