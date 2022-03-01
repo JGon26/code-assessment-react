@@ -12,6 +12,8 @@ const App = () => {
   const [cardClicked, updateCardClicked] = useState(false);
   const [currentTruck, updateCurrentTruck] = useState([]);
   const [modal, updateModal] = useState(false);
+  const [windowWidth, updateWindowWidth] = useState(0);
+  const [list, updateList] = useState(true);
 
 
   useEffect(() => {
@@ -20,22 +22,65 @@ const App = () => {
       url: 'https://my.api.mockaroo.com/locations.json?key=a45f1200'
     })
       .then((result) => updateTruckList(result.data))
+      .catch((err) => console.error(err));
   }, []);
 
+  useEffect(() => {
+
+    updateDimensions();
+
+    window.addEventListener("resize", updateDimensions);
+
+    return () =>
+      window.removeEventListener("resize", updateDimensions);
+
+  }, []);
+
+  const updateDimensions = () => {
+    const width = window.innerWidth
+    updateWindowWidth(width);
+  }
+
   return (
-    <div className="App">
-      <Nav />
+    (windowWidth > 900 ? <div className="App">
+      <Nav list={list} windowWidth={windowWidth} />
       <h1 id="truckCount" >Found {truckList.length} trucks near you</h1>
       <div id="listMapContainer">
         <TruckList truckList={truckList} updateCardClicked={updateCardClicked}
-        updateCurrentTruck={updateCurrentTruck} updateModal={updateModal}
-        cardClicked={cardClicked}/>
+          updateCurrentTruck={updateCurrentTruck} updateModal={updateModal}
+          cardClicked={cardClicked} />
         <div id="mapContainer">
-          <MapContainer cardClicked={cardClicked} truck={currentTruck} />
-          <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} />
+        <MapContainer cardClicked={cardClicked} truck={currentTruck}
+              truckList={truckList} updateModal={updateModal} updateCurrentTruck={updateCurrentTruck}/>
+          <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal}
+          windowWidth={windowWidth}/>
         </div>
       </div>
-    </div>
+    </div> :
+      <div className="App">
+        <Nav windowWidth={windowWidth} list={list} />
+        <div id="mobileContent">
+          {list ?
+          <div id="mobileContent">
+          <TruckList truckList={truckList} updateCardClicked={updateCardClicked}
+            updateCurrentTruck={updateCurrentTruck} updateModal={updateModal}
+            cardClicked={cardClicked} />
+          <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} windowWidth={windowWidth}/>
+            </div>
+            :
+            <div id="mobileContent">
+              <MapContainer cardClicked={cardClicked} truck={currentTruck}
+              truckList={truckList} updateModal={updateModal} updateCurrentTruck={updateCurrentTruck}/>
+              <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} windowWidth={windowWidth}/>
+            </div>
+          }
+        </div>
+        <div id="mobileFooter">
+          <button id="listBtn" onClick={()=> updateList(true)}>List</button>
+          <button id="mapBtn" onClick={() => updateList(false)}>Map</button>
+        </div>
+      </div>
+    )
   );
 }
 

@@ -3,7 +3,23 @@ import landscape from '../assets/landscape-placeholder.png';
 import phone from '../assets/phone-icon.png';
 import car from '../assets/direction-icon.png';
 
-const MoreInfoModal = ({ truck, showModal, updateModal }) => {
+const MoreInfoModal = ({ truck, showModal, updateModal, windowWidth }) => {
+
+  const expandMobileModal = (width) => {
+
+    let styleObj = {
+      height: "80vh",
+      width: "100%"
+    }
+
+    if (Number(width) < 900) {
+      styleObj =  {
+        height: "90vh",
+        width: "104%",
+      }
+    }
+    return styleObj;
+  }
 
   const handleCloseModal = () => {
     updateModal(false);
@@ -34,7 +50,7 @@ const MoreInfoModal = ({ truck, showModal, updateModal }) => {
 
   return (
     (!showModal ? <></> :
-      <div id="moreInfoModal">
+      <div id="moreInfoModal" style={expandMobileModal(windowWidth)}>
         <div id="modalContent">
           <img id="xMark" src={x} alt="x-mark" onClick={() => handleCloseModal()}></img>
           <img id="landscape" src={landscape} alt="landscape" ></img>
