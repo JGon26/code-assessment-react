@@ -50,7 +50,8 @@ const TruckListEntry = ({ truck, updateCardClicked, updateCurrentTruck, updateMo
       <div id="truckCardBtnContainer">
         <button onClick={() => openMapTab()} className="truckCardBtn" id="truckDirections">DIRECTIONS
         </button>
-        <button className="truckCardBtn" id="truckMoreInfo" onClick={(e) => handleMoreInfo(e)}>MORE INFO</button>
+        <button className="truckCardBtn" id="truckMoreInfo" onClick={(e) => handleMoreInfo(e)}>
+          MORE INFO</button>
       </div>
     </div>
   );
