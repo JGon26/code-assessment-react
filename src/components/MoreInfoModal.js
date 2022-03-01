@@ -13,7 +13,7 @@ const MoreInfoModal = ({ truck, showModal, updateModal, windowWidth }) => {
     }
 
     if (Number(width) < 900) {
-      styleObj =  {
+      styleObj = {
         height: "90vh",
         width: "100%",
       }
@@ -44,7 +44,8 @@ const MoreInfoModal = ({ truck, showModal, updateModal, windowWidth }) => {
       hourHtml += `<h5 id="hours" id="modal${day}Hours">${truck[openKey]} - ${truck[closeKey]}</h5>`
     }
 
-    return (<div id="modalDayHoursBox"><div id="modalDayBox" dangerouslySetInnerHTML={{ __html: html }} />
+    return (<div id="modalDayHoursBox"><div id="modalDayBox"
+      dangerouslySetInnerHTML={{ __html: html }} />
       <div id="modalHourBox" dangerouslySetInnerHTML={{ __html: hourHtml }} /> </div>);
   }
 
@@ -66,7 +67,8 @@ const MoreInfoModal = ({ truck, showModal, updateModal, windowWidth }) => {
             <h5 id="directions" >Get Directions</h5>
           </div>
           {handleHours(truck)}
-          <button id="fullDetailsBtn" onClick={() => handleFullDetails(truck)}>VIEW FULL DETAILS</button>
+          <button id="fullDetailsBtn" onClick={() => handleFullDetails(truck)}>
+            VIEW FULL DETAILS</button>
 
         </div>
       </div>

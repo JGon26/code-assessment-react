@@ -42,7 +42,8 @@ const MapContainer = ({ cardClicked, truck, truckList, updateModal, updateCurren
           zoom={13}
           center={locations[0].location}>
           {createLocations(truckList).map((item, i) => {
-            return <Marker position={item.location} key={i} onClick={() => handlePinClick(item.truck)} />
+            return <Marker position={item.location} key={i}
+              onClick={() => handlePinClick(item.truck)} />
           })}
         </GoogleMap>
       </LoadScript>)

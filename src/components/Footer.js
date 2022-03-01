@@ -1,5 +1,3 @@
-
-
 const Footer = ({ updateList, list }) => {
 
   const selectedStyle = {

@@ -51,8 +51,8 @@ const App = () => {
           updateCurrentTruck={updateCurrentTruck} updateModal={updateModal}
           cardClicked={cardClicked} />
         <div id="mapContainer">
-          <MapContainer cardClicked={cardClicked} truck={currentTruck}
-            truckList={truckList} updateModal={updateModal} updateCurrentTruck={updateCurrentTruck} />
+          <MapContainer cardClicked={cardClicked} truck={currentTruck} truckList={truckList}
+            updateModal={updateModal} updateCurrentTruck={updateCurrentTruck} />
           <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal}
             windowWidth={windowWidth} />
         </div>
@@ -65,13 +65,15 @@ const App = () => {
             <TruckList truckList={truckList} updateCardClicked={updateCardClicked}
               updateCurrentTruck={updateCurrentTruck} updateModal={updateModal}
               cardClicked={cardClicked} />
-            <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} windowWidth={windowWidth} />
+            <MoreInfoModal truck={currentTruck} showModal={modal}
+              updateModal={updateModal} windowWidth={windowWidth} />
           </div>
           :
           <div id="mobileContent">
-            <MapContainer cardClicked={cardClicked} truck={currentTruck}
-              truckList={truckList} updateModal={updateModal} updateCurrentTruck={updateCurrentTruck} />
-            <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} windowWidth={windowWidth} />
+            <MapContainer cardClicked={cardClicked} truck={currentTruck} truckList={truckList}
+              updateModal={updateModal} updateCurrentTruck={updateCurrentTruck} />
+            <MoreInfoModal truck={currentTruck} showModal={modal}
+              updateModal={updateModal} windowWidth={windowWidth} />
           </div>
         }
         <Footer updateList={updateList} list={list} />
