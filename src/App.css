@@ -27,9 +27,12 @@
 }
 
 #listMapContainer {
-  display: flex;
+  display: grid;
   height: 80vh;
   width: 70%;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: repeat(2, 50%);
+  position: relative;
   margin: 0 15% 0 15%;
 }
 
@@ -37,7 +40,11 @@
   overflow: scroll;
   overflow-y: none;
   width: 100%;
-  position:static;
+  /* position:static; */
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 #truckCard {
@@ -67,6 +74,24 @@
   background-color: rgb(216, 216, 216);
   align-items: center;
   justify-content: center;
+  z-index: -1;
+  position: relative;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+#mapContainer {
+  display: grid;
+  height: 80vh;
+  width: 100%;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#googleMap {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 100;
 }
 
 /************************
@@ -113,3 +138,79 @@ TRUCK LOCATION CARD
 More Info Modal
 
 ********************/
+
+#moreInfoModal {
+  display: flex;
+  height: 80vh;
+  width: 100%;
+  background-color: rgba(27, 26, 26, 0.233);
+  z-index: 2;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#modalContent {
+  display: grid;
+  grid-template-columns: repeat(20, 5%);
+  grid-template-rows: repeat(40, 2.5%);
+  height: 75vh;
+  width: 90%;
+  background-color: white;
+}
+
+#xMark {
+  height: 15px;
+  grid-column-start: 20;
+  grid-row-start: 1;
+  padding-top: 5px;
+}
+
+#landscape {
+  height: fill;
+  width: fill;
+  grid-column-start: 2;
+  grid-column-end: 20;
+  grid-row-start: 3;
+  grid-row-end: 14;
+}
+
+#modalTruckName {
+  grid-row-start: 14;
+  grid-column-start: 2;
+  grid-column-end: 10;
+}
+
+#modalTruckAddress {
+  grid-row-start: 17;
+  grid-column-start: 2;
+  grid-column-end: 10;
+}
+
+#modalTruckCity {
+  grid-row-start: 18;
+  grid-column-start: 2;
+  grid-column-end: 10;
+}
+
+#modalTruckNum {
+  grid-row-start: 20;
+  grid-column-start: 2;
+  grid-column-end: 10;
+  color: orange;
+}
+
+#modalTruckDirections {
+  grid-row-start: 20;
+  grid-column-start: 10;
+  grid-column-end: 18;
+  color: orange;
+}
+
+#modalHourBox {
+  grid-row-start: 23;
+  grid-column-start: 2;
+  grid-column-end: 15;
+}
+

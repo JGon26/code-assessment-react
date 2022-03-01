@@ -1,10 +1,18 @@
 import phone from '../assets/phone-icon.png'
 
-const TruckListEntry = ({ truck, updateCardClicked, updateCurrentTruck }) => {
+const TruckListEntry = ({ truck, updateCardClicked, updateCurrentTruck, updateModal }) => {
 
   const handleCardCLick = () => {
+    updateModal(false);
     updateCardClicked(true);
     updateCurrentTruck(truck);
+  };
+
+  const handleMoreInfo = (e) => {
+    e.stopPropagation();
+    updateModal(true);
+    updateCurrentTruck(truck);
+    updateCardClicked(true);
   };
 
   const openMapTab = () => {
@@ -32,7 +40,7 @@ const TruckListEntry = ({ truck, updateCardClicked, updateCurrentTruck }) => {
       <div id="truckCardBtnContainer">
         <button onClick={() => openMapTab()} className="truckCardBtn" id="truckDirections">DIRECTIONS
         </button>
-        <button className="truckCardBtn" id="truckMoreInfo">MORE INFO</button>
+        <button className="truckCardBtn" id="truckMoreInfo" onClick={(e)=>handleMoreInfo(e)}>MORE INFO</button>
       </div>
     </div>
   );
