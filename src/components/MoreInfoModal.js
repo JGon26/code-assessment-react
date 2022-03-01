@@ -15,7 +15,7 @@ const MoreInfoModal = ({ truck, showModal, updateModal, windowWidth }) => {
     if (Number(width) < 900) {
       styleObj =  {
         height: "90vh",
-        width: "104%",
+        width: "100%",
       }
     }
     return styleObj;

@@ -5,6 +5,7 @@ import TruckList from './components/TruckList.js';
 import MapContainer from './components/MapContainer.js';
 import Nav from './components/Nav.js';
 import MoreInfoModal from './components/MoreInfoModal.js';
+import Footer from './components/Footer.js';
 
 const App = () => {
 
@@ -50,36 +51,31 @@ const App = () => {
           updateCurrentTruck={updateCurrentTruck} updateModal={updateModal}
           cardClicked={cardClicked} />
         <div id="mapContainer">
-        <MapContainer cardClicked={cardClicked} truck={currentTruck}
-              truckList={truckList} updateModal={updateModal} updateCurrentTruck={updateCurrentTruck}/>
+          <MapContainer cardClicked={cardClicked} truck={currentTruck}
+            truckList={truckList} updateModal={updateModal} updateCurrentTruck={updateCurrentTruck} />
           <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal}
-          windowWidth={windowWidth}/>
+            windowWidth={windowWidth} />
         </div>
       </div>
     </div> :
       <div className="App">
         <Nav windowWidth={windowWidth} list={list} />
-        <div id="mobileContent">
-          {list ?
+        {list ?
           <div id="mobileContent">
-          <TruckList truckList={truckList} updateCardClicked={updateCardClicked}
-            updateCurrentTruck={updateCurrentTruck} updateModal={updateModal}
-            cardClicked={cardClicked} />
-          <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} windowWidth={windowWidth}/>
-            </div>
-            :
-            <div id="mobileContent">
-              <MapContainer cardClicked={cardClicked} truck={currentTruck}
-              truckList={truckList} updateModal={updateModal} updateCurrentTruck={updateCurrentTruck}/>
-              <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} windowWidth={windowWidth}/>
-            </div>
-          }
-        </div>
-        <div id="mobileFooter">
-          <button id="listBtn" onClick={()=> updateList(true)}>List</button>
-          <button id="mapBtn" onClick={() => updateList(false)}>Map</button>
-        </div>
-      </div>
+            <TruckList truckList={truckList} updateCardClicked={updateCardClicked}
+              updateCurrentTruck={updateCurrentTruck} updateModal={updateModal}
+              cardClicked={cardClicked} />
+            <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} windowWidth={windowWidth} />
+          </div>
+          :
+          <div id="mobileContent">
+            <MapContainer cardClicked={cardClicked} truck={currentTruck}
+              truckList={truckList} updateModal={updateModal} updateCurrentTruck={updateCurrentTruck} />
+            <MoreInfoModal truck={currentTruck} showModal={modal} updateModal={updateModal} windowWidth={windowWidth} />
+          </div>
+        }
+        <Footer updateList={updateList} list={list} />
+      </div >
     )
   );
 }

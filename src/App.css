@@ -1,6 +1,7 @@
-body {
-  color: rgb(87, 87, 87);
-  font-weight: 200;
+button:hover,
+#fullDetailsBtn:hover {
+  background-color: rgb(151, 151, 151);
+  transition-delay: .2s;
 }
 
 #nav {
@@ -32,8 +33,11 @@ body {
 
 #mobileContent {
   display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, 50%);
   overflow: scroll;
   height: 90vh;
+  width: 100%;
 }
 
 #mobileFooter {
@@ -45,9 +49,9 @@ body {
 #listBtn,
 #mapBtn {
   background-color: white;
-  border-color: orange;
-  border-style: solid;
+  border: none;
   color: orange;
+  font-size: 17px;
   width: 50%
 }
 
@@ -96,7 +100,7 @@ body {
 #truckListContainer {
   overflow: scroll;
   overflow-y: none;
-  width: 100%;
+  width: stretch;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -109,7 +113,7 @@ body {
   display: grid;
   grid-template-columns: repeat(20, 5%);
   grid-template-rows: repeat(20, 5%);
-  height: 30vh;
+  height: 40vh;
   width: auto;
   margin: 4%;
   border-style: solid;
@@ -120,7 +124,7 @@ body {
 
 #mapPlaceholder {
   display: flex;
-  height: 80vh;
+  height: stretch;
   width: 100%;
   background-color: rgb(216, 216, 216);
   align-items: center;
@@ -129,18 +133,21 @@ body {
   position: relative;
   grid-column-start: 1;
   grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 #mapContainer {
   display: grid;
-  height: 80vh;
   width: 100%;
   grid-column-start: 3;
   grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 #googleMap {
   grid-column-start: 1;
+  grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 100;
 }
@@ -189,7 +196,7 @@ TRUCK LOCATION CARD
   display: flex;
   justify-content: space-between;
   grid-row-start: 16;
-  grid-row-end: 20;
+  grid-row-end: 19;
   grid-column-start: 2;
   grid-column-end: 20;
 }
@@ -219,8 +226,11 @@ More Info Modal
 #moreInfoModal {
   display: flex;
   background-color: rgba(27, 26, 26, 0.233);
+  height: 80vh;
+  width: stretch;
   z-index: 2;
   grid-column-start: 1;
+  grid-column-end: 3;
   grid-row-start: 1;
   align-items: center;
   justify-content: center;
@@ -272,7 +282,7 @@ More Info Modal
 #modalTruckNum {
   display: flex;
   align-items: center;
-  grid-row-start: 20;
+  grid-row-start: 21;
   grid-column-start: 2;
   grid-column-end: 10;
   color: orange;
@@ -285,7 +295,7 @@ More Info Modal
 #modalTruckDirections {
   display: flex;
   align-items: center;
-  grid-row-start: 20;
+  grid-row-start: 21;
   grid-column-start: 10;
   grid-column-end: 20;
   color: orange;
@@ -299,7 +309,7 @@ More Info Modal
   display: flex;
   height: stretch;
   width: stretch;
-  grid-row-start: 22;
+  grid-row-start: 23;
   grid-row-end: 35;
   grid-column-start: 2;
   grid-column-end: 20;
@@ -323,8 +333,8 @@ More Info Modal
 #fullDetailsBtn {
   height: stretch;
   width: stretch;
-  grid-row-start: 37;
-  grid-row-end: 39;
+  grid-row-start: 38;
+  grid-row-end: 40;
   grid-column-start: 2;
   grid-column-end: 20;
 }
